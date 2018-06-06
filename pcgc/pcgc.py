@@ -19,4 +19,4 @@ def pcgc(y, kinship, K):
     P = np.sum(y > 0) / len(y)
     t = st.norm.isf(K)
     c = P * (1 - P) * st.norm.pdf(t)**2 / (K**2 * (1 - K)**2)
-    return brent(lambda h2: pcgc_cost(y, kinship, c, h2), 1e-4, 1 - 1e4)[0]
+    return brent(lambda h2: pcgc_cost(y, kinship, c, h2), 1e-4, 1 - 1e-4)[0]
